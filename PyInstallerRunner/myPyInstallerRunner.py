@@ -60,7 +60,7 @@ class myPyInstallerRunner(object):
         # End of if-condition
 
         for strKey in dctYamlTree.keys():
-            self.__setSettingNode(strKey= strKey, dctYamlNode=dctYamlTree[strKey], dctSettingNode=dctSettingTree[strKey])
+            self.__setSettingNode(strKey= strKey, dctYamlNode=dctYamlTree, dctSettingNode=dctSettingTree)
         # End of for-loop
     # End of myPyInstallerRunner::setSettingNode
 
@@ -76,23 +76,16 @@ class myPyInstallerRunner(object):
         - dctYamlNode: Give the node from the yaml file.
         - dctSettingNode: Give the setting node to set.
         """
-        isLeaf = False
-        try:
-            dctYamlNode.items()
-        except:
-            isLeaf = True
-        # End of try-catch
-
-        if True == isLeaf:
+        if False == isinstance(dctYamlNode[strKey], dict):
             dctSettingNode[strKey] = dctYamlNode[strKey]
             return
         else:
-            for strSonKey in dctYamlNode.keys():
-                if strSonKey not in dctSettingNode.keys():
+            for strSonKey in dctYamlNode[strKey].keys():
+                if strSonKey not in dctSettingNode[strKey].keys():
                     raise KeyError("The key `%s` in `*.yaml` file is undefined in the method `__setSettingNode()` of the class `myPyInstallerRunner`!" %(strKey))
                 # End of if-condition
 
-                self.__setSettingNode(strSonKey, dctYamlNode[strSonKey], dctSettingNode[strSonKey])
+                self.__setSettingNode(strSonKey, dctYamlNode[strKey], dctSettingNode[strKey])
             # End of for-loop
         # End of if-condition
     # End of myPyInstallerRunner::setSettingNode
