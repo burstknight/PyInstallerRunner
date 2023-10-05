@@ -42,6 +42,13 @@ def test_PyInstallerRunner_setSettingTree_dctSettingTree_error():
     # End of with-block
 # End of test_PyInstallerRunner_setSettingTree_dctYamlTree_error
 
+def test_PyInstallerRunner_EmptyConfig(test_dctDefaultSettings):
+    oRunner = myPyInstallerRunner()
+    oRunner.loadSetting("./test/configs/empty_config.yaml")
+
+    assert oRunner.m_dctSettings == test_dctDefaultSettings
+# End of test_PyInstallerRunner_EmptyConfig
+
 def test_PyInstallerRunner_NotFoundFile():
     with pytest.raises(FileNotFoundError):
         oRunner = myPyInstallerRunner()
