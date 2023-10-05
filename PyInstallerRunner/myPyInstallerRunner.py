@@ -33,7 +33,9 @@ class myPyInstallerRunner(object):
             raise FileNotFoundError("Not found file: %s" %(strPath))
         # End of if-condition
 
-        dctYamlSetting = safe_load(strPath)
+        with open(strPath, "r", encoding="utf-8") as oReader:
+            dctYamlSetting = safe_load(oReader)
+        # End of with-block
 
         self.__setSettingTree(dctYamlSetting, self.m_dctSettings)
     # End of myPyInstallerRunner::loadConfig
