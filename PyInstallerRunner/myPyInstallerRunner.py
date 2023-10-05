@@ -88,11 +88,11 @@ class myPyInstallerRunner(object):
             return
         else:
             for strSonKey in dctYamlNode.keys():
-                if strKey not in dctSettingNode.keys():
-                    raise KeyError("The key `%s` in `*.yaml` file is undefined in the method `__setSettingNode()` of the class `myPyInstallerRunner`!")
+                if strSonKey not in dctSettingNode.keys():
+                    raise KeyError("The key `%s` in `*.yaml` file is undefined in the method `__setSettingNode()` of the class `myPyInstallerRunner`!" %(strKey))
                 # End of if-condition
 
-                self.__setSettingNode(strKey, dctYamlNode[strSonKey], dctSettingNode[strSonKey])
+                self.__setSettingNode(strSonKey, dctYamlNode[strSonKey], dctSettingNode[strSonKey])
             # End of for-loop
         # End of if-condition
     # End of myPyInstallerRunner::setSettingNode
