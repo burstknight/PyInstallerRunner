@@ -1,0 +1,5 @@
+BuildPath:
+  WorkPath: ./build/tmp
+  IconPath: ./resources/image.icon
+Args:
+  IsFile: false

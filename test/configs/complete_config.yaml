@@ -1,0 +1,8 @@
+BuildPath:
+  DistPath: ./build/release
+  SpecPath: ./build
+  WorkPath: ./build/tmp
+  IconPath: ./resources/image.icon
+Args:
+  IsFile: false
+  NeedShowConsole: true
