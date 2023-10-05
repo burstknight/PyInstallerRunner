@@ -37,6 +37,10 @@ class myPyInstallerRunner(object):
             dctYamlSetting = safe_load(oReader)
         # End of with-block
 
+        if dctYamlSetting is None:
+            return
+        # End of if-condition
+
         self.__setSettingTree(dctYamlSetting, self.m_dctSettings)
     # End of myPyInstallerRunner::loadConfig
 
