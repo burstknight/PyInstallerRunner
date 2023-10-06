@@ -12,7 +12,7 @@ class myPyInstallerRunner(object):
     def __init__(self) -> None:
         self.__m_dctSettings = {}
         self.__m_dctSettings["BuildPath"] = {"DistPath": "./bin/release", "SpecPath": "./bin", "WorkPath": "./bin/build", "IconPath": ""}
-        self.__m_dctSettings["CompileConfig"] = {"IsFile": True, "NeedShowConsole": True, "AppName": "Application"}
+        self.__m_dctSettings["CompileConfig"] = {"IsFile": True, "NeedShowConsole": True, "AppName": "Application", "Resources": []}
     # End of constructor
 
     @property
