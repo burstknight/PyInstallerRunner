@@ -1,4 +1,4 @@
-from typing import Dict, Union
+from typing import Dict
 from yaml import safe_load
 from os.path import isfile
 
@@ -15,7 +15,7 @@ class myPyInstallerRunner(object):
     # End of constructor
 
     @property
-    def m_dctSettings(self) -> Dict[str, Union[str, bool, Dict]]:
+    def m_dctSettings(self) -> Dict:
         return self.__m_dctSettings
     # End of myPyInstallerRunner::m_dctSettings
 
@@ -93,4 +93,45 @@ class myPyInstallerRunner(object):
             # End of for-loop
         # End of if-condition
     # End of myPyInstallerRunner::setSettingNode
+
+    def __parseSettings(self) -> str:
+        """
+        Description:
+        ===================================================
+        Parse the field `__m_dctSettings` to generate a
+        list of the arguments for `PyInstaller`.
+        """
+        strArgs = ""
+        
+        for strKey in self.m_dctSettings["Args"].keys():
+            if "IsFile" == strKey:
+                if True == self.m_dctSettings["Args"][strKey]:
+                    strArgs += "-F "
+                else:
+                    strArgs += "-D "
+                # End of if-condition
+            elif "NeedShowConsole" == strKey:
+                if False == self.m_dctSettings["Args"][strKey]:
+                    strArgs += "-w "
+                # End of if-condition
+            # End of if-condition
+        # End of for-loop
+
+        dctBuildPathArgs = {}
+        dctBuildPathArgs["DistPath"] = "--distpath"
+        dctBuildPathArgs["SpecPath"] = "--specpath"
+        dctBuildPathArgs["WorkPath"] = "--workpath"
+        dctBuildPathArgs["IconPath"] = "-i"
+        for strKey in self.m_dctSettings["BuildPath"].keys():
+            if "IconPath" != strKey:
+                strArgs += "%s \"%s\" "  %(dctBuildPathArgs[strKey], self.m_dctSettings["BuildPath"][strKey])
+            else:
+                if len(self.m_dctSettings["BuildPath"][strKey]) > 0:
+                    strArgs += "%s \"%s\" " %(dctBuildPathArgs[strKey], self.m_dctSettings["BuildPath"][strKey])
+                # End of if-condition
+            # End of if-condition
+        # End of for-loop
+
+        return strArgs
+    # End of myPyInstallerRunner::__parseSettings
 # End of class myPyInstallerRunner
