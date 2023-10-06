@@ -1,6 +1,7 @@
 from typing import Dict
 from yaml import safe_load
 from os.path import isfile
+from os import system
 
 class myPyInstallerRunner(object):
     """
@@ -136,4 +137,28 @@ class myPyInstallerRunner(object):
 
         return strArgs
     # End of myPyInstallerRunner::__parseSettings
+
+    def buildCode(self, strSource: str):
+        """
+        Description:
+        ===================================================
+        Build python code as an executable file.
+
+        Args:
+        ===================================================
+        - strSource: Give the python code file path.
+        """
+        if False == isfile(strSource):
+            raise FileNotFoundError("Not found python code file: %s" %(strSource))
+        # End of if-condition
+
+        strArgs = self.__parseSettings()
+        strCommand = "python3 -m PyInstaller %s -y %s" %(strArgs, strSource)
+
+        iReturnCode = system(strCommand)
+
+        if 0 != iReturnCode:
+            raise RuntimeError("Failed to build the python code file as an executable file!")
+        # End of if-condition
+    # End of myPyInstallerRunner::buildCode
 # End of class myPyInstallerRunner

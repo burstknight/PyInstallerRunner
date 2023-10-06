@@ -43,3 +43,17 @@ def test_strPartArgs() -> str:
     return "-F -w -n \"Application\" --distpath \"./bin/release\" --specpath \"./bin\" --workpath \"./build/tmp\" -i \"./resources/image.icon\" "
 # End of test_strPartArgs
 
+@pytest.fixture()
+def test_strApp01_src() -> str:
+    return "./test/examples/myApp01/myApp01.py"
+# End of test_strApp01_src
+
+@pytest.fixture()
+def test_strApp01_config_file() -> str:
+    return "./test/examples/myApp01/config_file.yaml"
+# End of test_strApp01_config_file
+
+@pytest.fixture()
+def test_strApp01_config_dir() -> str:
+    return "./test/examples/myApp01/config_dir.yaml"
+# End of test_strApp01_config_dir
