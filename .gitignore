@@ -148,7 +148,7 @@ MANIFEST
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
-test/examples/myApp01/bin/*
+test/examples/bin/*
 
 # Installer logs
 pip-log.txt

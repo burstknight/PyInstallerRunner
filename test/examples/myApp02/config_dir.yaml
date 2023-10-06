@@ -1,0 +1,12 @@
+BuildPath:
+  DistPath: ./test/examples/bin/release
+  SpecPath: ./test/examples/bin
+  WorkPath: ./test/examples/bin/build
+CompileConfig:
+  IsFile: false
+  AppName: myApp02_dir
+  Resources:
+    - Source: ./test/examples/myApp02/version.txt
+      Target: .
+    - Source: ./test/examples/myApp02/data
+      Target: data
