@@ -1,7 +1,8 @@
-from typing import Dict
+from typing import Dict, List
 from yaml import safe_load
-from os.path import isfile
+from os.path import isfile, isdir, join, exists
 from os import system
+from shutil import copy, copytree, rmtree
 
 class myPyInstallerRunner(object):
     """
@@ -12,7 +13,7 @@ class myPyInstallerRunner(object):
     def __init__(self) -> None:
         self.__m_dctSettings = {}
         self.__m_dctSettings["BuildPath"] = {"DistPath": "./bin/release", "SpecPath": "./bin", "WorkPath": "./bin/build", "IconPath": ""}
-        self.__m_dctSettings["CompileConfig"] = {"IsFile": True, "NeedShowConsole": True, "AppName": "Application"}
+        self.__m_dctSettings["CompileConfig"] = {"IsFile": True, "NeedShowConsole": True, "AppName": "Application", "Resources": []}
     # End of constructor
 
     @property
@@ -138,6 +139,44 @@ class myPyInstallerRunner(object):
         return strArgs
     # End of myPyInstallerRunner::__parseSettings
 
+    def __copyResourceFiles(self, strBuildDir: str, vdctResources: List[Dict[str, str]]):
+        """
+        Description:
+        ===================================================
+        Copy all resource files into the build directory if 
+        we need.
+
+        Args:
+        ===================================================
+        - strBuildDir: All resource files will copy into this directory.
+        - vdctResources: Give the list of the resource.
+        """
+        if len(vdctResources) <= 0:
+            return
+        # End of if-condition
+
+        for dctResource in vdctResources:
+            if "." == dctResource["Target"]:
+                strTargetPath = strBuildDir
+            else:
+                strTargetPath = join(strBuildDir, dctResource["Target"])
+            # End of if-condition
+
+            strSourcePath = dctResource["Source"]
+            if True == isfile(strSourcePath):
+                copy(strSourcePath, strTargetPath)
+            elif True == isdir(strSourcePath):
+                if True == exists(strTargetPath):
+                    rmtree(strTargetPath)
+                # End of if-condition
+
+                copytree(strSourcePath, strTargetPath)
+            else:
+                print("Warning: Not found file or directory: %s" %(strSourcePath))
+            # End of if-condition
+        # End of for-loop
+    # End of myPyInstallerRunner::__copyResourceFiles
+
     def buildCode(self, strSource: str):
         """
         Description:
@@ -160,5 +199,13 @@ class myPyInstallerRunner(object):
         if 0 != iReturnCode:
             raise RuntimeError("Failed to build the python code file as an executable file!")
         # End of if-condition
+
+        if True == self.m_dctSettings["CompileConfig"]["IsFile"]:
+            strBuildDir = self.m_dctSettings["BuildPath"]["DistPath"]
+        else:
+            strBuildDir = join(self.m_dctSettings["BuildPath"]["DistPath"], self.m_dctSettings["CompileConfig"]["AppName"])
+        # End of if-condition
+
+        self.__copyResourceFiles(strBuildDir, self.m_dctSettings["CompileConfig"]["Resources"])
     # End of myPyInstallerRunner::buildCode
 # End of class myPyInstallerRunner
