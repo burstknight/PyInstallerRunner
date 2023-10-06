@@ -1,8 +1,8 @@
 from typing import Dict, List
 from yaml import safe_load
-from os.path import isfile, isdir, join
+from os.path import isfile, isdir, join, exists
 from os import system
-from shutil import copy, copyfile, copytree
+from shutil import copy, copytree, rmtree
 
 class myPyInstallerRunner(object):
     """
@@ -166,6 +166,10 @@ class myPyInstallerRunner(object):
             if True == isfile(strSourcePath):
                 copy(strSourcePath, strTargetPath)
             elif True == isdir(strSourcePath):
+                if True == exists(strTargetPath):
+                    rmtree(strTargetPath)
+                # End of if-condition
+
                 copytree(strSourcePath, strTargetPath)
             else:
                 print("Warning: Not found file or directory: %s" %(strSourcePath))

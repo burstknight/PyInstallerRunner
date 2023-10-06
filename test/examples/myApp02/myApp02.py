@@ -1,6 +1,6 @@
 from yaml import safe_load
 from os import listdir
-from os.path import join
+from os.path import join, isfile
 
 def main():
     with open("version.txt", "r", encoding="utf-8") as oReader:
@@ -12,6 +12,10 @@ def main():
     strDataDir = "./data"
     for strFile in listdir(strDataDir):
         strPath = join(strDataDir, strFile)
+        if False == isfile(strPath):
+            continue
+        # End of if-condition
+
         print("="*20 + " %s " %(strPath) + "="*20)
         
         with open(strPath, "r", encoding="utf-8") as oReader:
