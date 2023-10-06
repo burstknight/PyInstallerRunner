@@ -11,7 +11,7 @@ class myPyInstallerRunner(object):
     def __init__(self) -> None:
         self.__m_dctSettings = {}
         self.__m_dctSettings["BuildPath"] = {"DistPath": "./bin/release", "SpecPath": "./bin", "WorkPath": "./bin/build", "IconPath": ""}
-        self.__m_dctSettings["Args"] = {"IsFile": True, "NeedShowConsole": True}
+        self.__m_dctSettings["CompileConfig"] = {"IsFile": True, "NeedShowConsole": True, "AppName": "Application"}
     # End of constructor
 
     @property
@@ -103,17 +103,19 @@ class myPyInstallerRunner(object):
         """
         strArgs = ""
         
-        for strKey in self.m_dctSettings["Args"].keys():
+        for strKey in self.m_dctSettings["CompileConfig"].keys():
             if "IsFile" == strKey:
-                if True == self.m_dctSettings["Args"][strKey]:
+                if True == self.m_dctSettings["CompileConfig"][strKey]:
                     strArgs += "-F "
                 else:
                     strArgs += "-D "
                 # End of if-condition
             elif "NeedShowConsole" == strKey:
-                if False == self.m_dctSettings["Args"][strKey]:
+                if False == self.m_dctSettings["CompileConfig"][strKey]:
                     strArgs += "-w "
                 # End of if-condition
+            elif "AppName" == strKey:
+                strArgs += "-n \"%s\" " %(self.m_dctSettings["CompileConfig"][strKey])
             # End of if-condition
         # End of for-loop
 
