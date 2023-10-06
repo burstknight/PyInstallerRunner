@@ -1,7 +1,7 @@
 from PyInstallerRunner.myPyInstallerRunner import myPyInstallerRunner
 from pytest import mark, raises
 from unittest.mock import patch
-from test.PyInstallerRunner_Fixture import test_dctApp01Cofig_dir, test_dctApp01Cofig_file, test_dctApp02Cofig_dir, test_dctApp02Cofig_file
+from test.PyInstallerRunner_Fixture import test_dctApp01Cofig_dir, test_dctApp01Cofig_file, test_dctApp02Cofig_dir, test_dctApp02Cofig_file, test_dctCopyResourcesFailed
 from os import system, getcwd, chdir
 
 def runApp(strExeDir: str, strAppName: str) -> int:
@@ -83,3 +83,9 @@ def test_PyInstallerRunner_Build_SucceedFile_WithResources(test_dctApp02Cofig_fi
 
     assert 0 == runApp(test_dctApp02Cofig_file["bin"], test_dctApp02Cofig_file["app"])
 # End of test_PyInstallerRunner_Build_SucceedDir_WithResources
+
+@mark.Build
+def test_PyInstallerRunner_copyResourceFilesFailed(test_dctCopyResourcesFailed):
+    oRunner = myPyInstallerRunner()
+    oRunner._myPyInstallerRunner__copyResourceFiles(test_dctCopyResourcesFailed["BuildPath"], test_dctCopyResourcesFailed["Resources"])
+# End of test_PyInstallerRunner_copyResourceFilesFailed

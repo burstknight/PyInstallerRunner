@@ -86,3 +86,12 @@ def test_dctApp02Cofig_dir() -> Dict[str, str]:
     
     return dctConfig
 # End of test_dctApp02Cofig_dir
+
+@pytest.fixture()
+def test_dctCopyResourcesFailed() -> Dict:
+    dctResource = {}
+    dctResource["BuildPath"] = "./test"
+    dctResource["Resources"] = [{"Source": "bug_code.pyxxx", "Target": "."}]
+
+    return dctResource
+# End of test_dctCopyResourcesFailed
