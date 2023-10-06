@@ -7,3 +7,10 @@ CompileConfig:
   IsFile: false
   NeedShowConsole: true
   AppName: MyApp
+  Resources:
+    - Source: ./resources/config.cfg
+      Target: resources/
+    - Source: ./data/
+      Target: data
+    - Source: ./version.txt
+      Target: .

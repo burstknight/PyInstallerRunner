@@ -5,7 +5,7 @@ import pytest
 def test_dctDefaultSettings() -> Dict:
     dctSettings = {}
     dctSettings["BuildPath"] = {"DistPath": "./bin/release", "SpecPath": "./bin", "WorkPath": "./bin/build", "IconPath": ""}
-    dctSettings["CompileConfig"] = {"IsFile": True, "NeedShowConsole": True, "AppName": "Application"}
+    dctSettings["CompileConfig"] = {"IsFile": True, "NeedShowConsole": True, "AppName": "Application", "Resources": []}
 
     return dctSettings
 # End of test_dctDefaultSettings
@@ -14,7 +14,7 @@ def test_dctDefaultSettings() -> Dict:
 def test_dctCompleteSettings() -> Dict:
     dctSettings = {}
     dctSettings["BuildPath"] = {"DistPath": "./build/release", "SpecPath": "./build", "WorkPath": "./build/tmp", "IconPath": "./resources/image.icon"}
-    dctSettings["CompileConfig"] = {"IsFile": False, "NeedShowConsole": True, "AppName": "MyApp"}
+    dctSettings["CompileConfig"] = {"IsFile": False, "NeedShowConsole": True, "AppName": "MyApp", "Resources": [{"Source": "./resources/config.cfg", "Target": "resources/"}, {"Source": "./data/", "Target": "data"}, {"Source": "./version.txt", "Target": "."}]}
 
     return dctSettings
 # End of test_dctCompleteSettings
@@ -23,7 +23,7 @@ def test_dctCompleteSettings() -> Dict:
 def test_dctPartSettings():
     dctSettings = {}
     dctSettings["BuildPath"] = {"DistPath": "./bin/release", "SpecPath": "./bin", "WorkPath": "./build/tmp", "IconPath": "./resources/image.icon"}
-    dctSettings["CompileConfig"] = {"IsFile": True, "NeedShowConsole": False, "AppName": "Application"}
+    dctSettings["CompileConfig"] = {"IsFile": True, "NeedShowConsole": False, "AppName": "Application", "Resources": []}
 
     return dctSettings
 # End of test_dctPartSettings
