@@ -1,6 +1,6 @@
 BuildPath:
   WorkPath: ./build/tmp
   IconPath: ./resources/image.icon
-Args:
+CompileConfig:
   IsFile: true
   NeedShowConsole: false

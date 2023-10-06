@@ -2,5 +2,5 @@ BuildPath:
   WorkPath: ./build/tmp
   IconPath: ./resources/image.icon
   Test: hello
-Args:
+CompileConfig:
   IsFile: false

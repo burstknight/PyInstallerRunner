@@ -3,6 +3,7 @@ BuildPath:
   SpecPath: ./build
   WorkPath: ./build/tmp
   IconPath: ./resources/image.icon
-Args:
+CompileConfig:
   IsFile: false
   NeedShowConsole: true
+  AppName: MyApp
