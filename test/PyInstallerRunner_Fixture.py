@@ -115,3 +115,12 @@ def test_dctCommandArgs_Config() -> Dict:
     return dctCommandArgs
 # End of test_dctCommandArgs_Config
 
+@pytest.fixture()
+def test_dctCommandArgs_Build() -> Dict:
+    dctCommandArgs = {}
+    dctCommandArgs["args"] = Namespace(source_path="./test/examples/myApp01/myApp01.py", config_path="./test/examples/myApp01/config_dir.yaml")
+    dctCommandArgs["bin"] = "./test/examples/bin/release/myApp01_dir"
+    dctCommandArgs["app"] = "myApp01_dir"
+
+    return dctCommandArgs
+# End of test_dctCommandArgs_Build
