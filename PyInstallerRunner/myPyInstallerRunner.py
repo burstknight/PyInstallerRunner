@@ -6,6 +6,7 @@ from shutil import copy, copytree, rmtree
 from argparse import ArgumentParser, Namespace
 import sys
 from typing import List
+import platform
 
 __version__ = "0.1.0-dev0"
 
@@ -197,7 +198,13 @@ class myPyInstallerRunner(object):
         # End of if-condition
 
         strArgs = self.__parseSettings()
-        strCommand = "python3 -m PyInstaller %s -y %s" %(strArgs, strSource)
+        if "Windows" == platform.system():
+            strPythonCommand = "python"
+        else:
+            strPythonCommand = "python3"
+        # End of if-condition
+
+        strCommand = "%s -m PyInstaller %s -y %s" %(strPythonCommand, strArgs, strSource)
 
         iReturnCode = system(strCommand)
 
