@@ -3,6 +3,11 @@ from yaml import safe_load
 from os.path import isfile, isdir, join, exists
 from os import system
 from shutil import copy, copytree, rmtree
+from argparse import ArgumentParser, Namespace
+import sys
+from typing import List
+
+__version__ = "1.0.0"
 
 class myPyInstallerRunner(object):
     """
@@ -209,3 +214,37 @@ class myPyInstallerRunner(object):
         self.__copyResourceFiles(strBuildDir, self.m_dctSettings["CompileConfig"]["Resources"])
     # End of myPyInstallerRunner::buildCode
 # End of class myPyInstallerRunner
+
+
+def parseArgs(vstrArgs: List[str]) -> Namespace:
+    """
+    Descripiton:
+    =======================================================
+    Parse the arguments from user.
+
+    Returns:
+    =======================================================
+    - rtype: Namespace, Return the parsed arguments.
+    """
+    oArgParser = ArgumentParser()
+    oArgParser.add_argument("source_path", help="Give the python source code file path.", type=str)
+    oArgParser.add_argument("-c", "--config", help="Give `*.yaml` file path to load configuration.", default="", dest="config_path", type=str)
+    oArgParser.add_argument("-v", "--version", action="version", version="Version: %s" %(__version__))
+
+    return oArgParser.parse_args(vstrArgs)
+# End of parseArgs
+
+def main():
+    oArgs = parseArgs(sys.argv[1:])
+
+    oBuildRunner = myPyInstallerRunner()
+    if len(oArgs.config_path) > 0:
+        oBuildRunner.loadSetting(oArgs.config_path)
+    # End of if-condition
+
+    oBuildRunner.buildCode(oArgs.source_path)
+# End of main
+
+if "__main__" == __name__:
+    main()
+# End of if-condition
