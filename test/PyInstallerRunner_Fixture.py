@@ -1,5 +1,6 @@
 from typing import Dict
 import pytest
+from argparse import Namespace
 
 @pytest.fixture()
 def test_dctDefaultSettings() -> Dict:
@@ -95,3 +96,31 @@ def test_dctCopyResourcesFailed() -> Dict:
 
     return dctResource
 # End of test_dctCopyResourcesFailed
+
+@pytest.fixture()
+def test_dctCommandArgs_Default() -> Dict:
+    dctCommandArgs = {}
+    dctCommandArgs["command"] = ["myApp.py"]
+    dctCommandArgs["args"] = Namespace(source_path="myApp.py", config_path="")
+
+    return dctCommandArgs
+# End of test_dctCommandArgs_Default
+
+@pytest.fixture()
+def test_dctCommandArgs_Config() -> Dict:
+    dctCommandArgs = {}
+    dctCommandArgs["command"] = ["myApp.py", "-c", "config.yaml"]
+    dctCommandArgs["args"] = Namespace(source_path="myApp.py", config_path="config.yaml")
+
+    return dctCommandArgs
+# End of test_dctCommandArgs_Config
+
+@pytest.fixture()
+def test_dctCommandArgs_Build() -> Dict:
+    dctCommandArgs = {}
+    dctCommandArgs["args"] = Namespace(source_path="./test/examples/myApp01/myApp01.py", config_path="./test/examples/myApp01/config_dir.yaml")
+    dctCommandArgs["bin"] = "./test/examples/bin/release/myApp01_dir"
+    dctCommandArgs["app"] = "myApp01_dir"
+
+    return dctCommandArgs
+# End of test_dctCommandArgs_Build
