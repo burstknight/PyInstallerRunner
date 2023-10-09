@@ -22,7 +22,8 @@ def main():
             classifiers=[
                 "Programming Language :: Python :: 3",
                 "License :: OSI Approved :: MIT ::License",
-                "Operating System :: POSIX :: Linux"
+                "Operating System :: POSIX :: Linux",
+                "Operating System :: Microsoft :: Windows"
                 ],
             python_requries=">=3.8",
             install_requires=["pyinstaller>=5.9.0", "pyyaml>=6.0"])
