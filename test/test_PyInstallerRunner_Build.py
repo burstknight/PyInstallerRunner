@@ -3,6 +3,7 @@ from pytest import mark, raises
 from unittest.mock import patch
 from test.PyInstallerRunner_Fixture import test_dctApp01Cofig_dir, test_dctApp01Cofig_file, test_dctApp02Cofig_dir, test_dctApp02Cofig_file, test_dctCopyResourcesFailed
 from os import system, getcwd, chdir
+import platform
 
 def runApp(strExeDir: str, strAppName: str) -> int:
     """
@@ -21,7 +22,12 @@ def runApp(strExeDir: str, strAppName: str) -> int:
     """
     strCurrPath = getcwd()
     chdir(strExeDir)
-    strCommand = "./%s" %(strAppName)
+    if "Windows" == platform.system():
+        strCommand = "%s.exe" %(strAppName)
+    else:
+        strCommand = "./%s" %(strAppName)
+    # End of if-condition
+
     iReturnCode = system(strCommand)
     chdir(strCurrPath)
 
