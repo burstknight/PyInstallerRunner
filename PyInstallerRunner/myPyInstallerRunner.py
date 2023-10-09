@@ -233,7 +233,7 @@ def parseArgs(vstrArgs: List[str]) -> Namespace:
     =======================================================
     - rtype: Namespace, Return the parsed arguments.
     """
-    oArgParser = ArgumentParser()
+    oArgParser = ArgumentParser(description="This is a tool that can use `*.yaml` file as the configuration file and `PyInstaller` to build python code file as an executable file.")
     oArgParser.add_argument("source_path", help="Give the python source code file path.", type=str)
     oArgParser.add_argument("-c", "--config", help="Give `*.yaml` file path to load configuration.", default="", dest="config_path", type=str)
     oArgParser.add_argument("-v", "--version", action="version", version="Version: %s" %(__version__))
