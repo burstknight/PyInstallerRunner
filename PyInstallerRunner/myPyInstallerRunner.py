@@ -7,8 +7,7 @@ from argparse import ArgumentParser, Namespace
 import sys
 from typing import List
 import platform
-
-__version__ = "1.0.0"
+from PyInstallerRunner.version import __version__
 
 class myPyInstallerRunner(object):
     """

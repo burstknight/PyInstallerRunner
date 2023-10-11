@@ -1,5 +1,5 @@
-from setuptools import find_packages, setup
-from PyInstallerRunner.myPyInstallerRunner import __version__
+from setuptools import setup
+from PyInstallerRunner.version import __version__
 
 def main():
     with open("README.md", "r", encoding="utf-8") as oReader:
@@ -13,7 +13,7 @@ def main():
             long_description=strLongDescription,
             long_description_content_type="text/markdown",
             url="https://github.com/burstknight/PyInstallerRunner",
-            packages=find_packages(),
+            py_modules=["PyInstallerRunner/__init__", "PyInstallerRunner/myPyInstallerRunner", "PyInstallerRunner/version"],
             entry_points={
                 "console_scripts": [
                     "PyInstallerRunner = PyInstallerRunner.myPyInstallerRunner:main"
