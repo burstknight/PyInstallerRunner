@@ -1,5 +1,5 @@
 from setuptools import find_packages, setup
-from PyInstallerRunner.myPyInstallerRunner import __version__
+from PyInstallerRunner.version import __version__
 
 def main():
     with open("README.md", "r", encoding="utf-8") as oReader:
