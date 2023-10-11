@@ -1,4 +1,4 @@
-from setuptools import find_packages, setup
+from setuptools import setup
 from PyInstallerRunner.version import __version__
 
 def main():
@@ -13,7 +13,7 @@ def main():
             long_description=strLongDescription,
             long_description_content_type="text/markdown",
             url="https://github.com/burstknight/PyInstallerRunner",
-            packages=find_packages(),
+            py_modules=["PyInstallerRunner/__init__", "PyInstallerRunner/myPyInstallerRunner", "PyInstallerRunner/version"],
             entry_points={
                 "console_scripts": [
                     "PyInstallerRunner = PyInstallerRunner.myPyInstallerRunner:main"
