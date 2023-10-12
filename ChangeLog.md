@@ -7,6 +7,7 @@
 ### [Changed]
 
 ### [Fixed]
+- This repo couldn't copy resource directory  if the value of the setting `Target` of the node `Resources` was set `.` in `*.yaml` file.
 
 ### [Removed]
 
