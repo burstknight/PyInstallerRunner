@@ -1,7 +1,7 @@
 from typing import Dict, List
 from yaml import safe_load
 from os.path import isfile, isdir, join, exists
-from os import system
+from os import makedirs, stat_result, system
 from shutil import copy, copytree, rmtree
 from argparse import ArgumentParser, Namespace
 import sys
@@ -161,16 +161,21 @@ class myPyInstallerRunner(object):
         # End of if-condition
 
         for dctResource in vdctResources:
+            strSourcePath = dctResource["Source"]
             if "." == dctResource["Target"]:
                 strTargetPath = strBuildDir
             else:
                 strTargetPath = join(strBuildDir, dctResource["Target"])
             # End of if-condition
 
-            strSourcePath = dctResource["Source"]
+            if False == isdir(strTargetPath):
+                makedirs(strTargetPath)
+            # End of if-condition
+
             if True == isfile(strSourcePath):
                 copy(strSourcePath, strTargetPath)
             elif True == isdir(strSourcePath):
+                strTargetPath = join(strTargetPath, strSourcePath.split("/")[-1])
                 if True == exists(strTargetPath):
                     rmtree(strTargetPath)
                 # End of if-condition
