@@ -10,6 +10,7 @@ def main():
     print("Verison: %s\n" %(strVersern))
 
     strDataDir = "./data"
+    isShow = False
     for strFile in listdir(strDataDir):
         strPath = join(strDataDir, strFile)
         if False == isfile(strPath):
@@ -24,7 +25,12 @@ def main():
 
         print(dctYaml)
         print()
+        isShow = True
     # End of for-loop
+
+    if False == isShow:
+        raise FileNotFoundError("Failed to load *yaml files!")
+    # End of if-condition
 # End of main
 
 if "__main__" == __name__:
