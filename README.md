@@ -72,7 +72,7 @@ CompileConfig:
     - Source: ./resources/config.cfg
       Target: resources/
     - Source: ./data/
-      Target: data
+      Target: .
     - Source: ./version.txt
       Target: .
 ```

@@ -9,4 +9,4 @@ CompileConfig:
     - Source: ./test/examples/myApp02/version.txt
       Target: .
     - Source: ./test/examples/myApp02/data
-      Target: data
+      Target: .
