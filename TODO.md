@@ -1,11 +1,4 @@
 # To Do List
 
----------
-## [Added]
-
-## [Changed]
-
-## [Fixed]
-
-## [Deprecated]
+* This repo should use [uv](https://docs.astral.sh/uv/) to manage develop environment.
 
