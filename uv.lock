@@ -568,7 +568,7 @@ wheels = [
 ]
 
 [[package]]
-name = "pyinsterallerrunner"
+name = "pyinstallerrunner"
 source = { editable = "." }
 dependencies = [
     { name = "pyinstaller" },

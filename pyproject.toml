@@ -1,5 +1,5 @@
 [project]
-name = "PyInsterallerRunner"
+name = "PyInstallerRunner"
 dynamic = ["version"]
 description = "Add your description here"
 readme = "README.md"
@@ -13,14 +13,14 @@ dependencies = [
 ]
 
 [project.scripts]
-PyInsterallerRunner = "PyInsterallerRunner.myPyInstallerRunner:main"
+PyInstallerRunner = "PyInstallerRunner.myPyInstallerRunner:main"
 
 [tool.hatch.version]
 path = "./src/PyInstallerRunner/version.py"
 
 [tool.hatch.build.targets.wheel]
 packages = [
-	"src/PyInsterallerRunner"
+	"./src/PyInstallerRunner/",
 ]
 
 [build-system]
