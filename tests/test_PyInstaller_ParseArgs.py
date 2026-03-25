@@ -1,4 +1,4 @@
-from test.PyInstallerRunner_Fixture import test_strDefaultArgs, test_strCompleteArgs, test_strPartArgs
+from tests.PyInstallerRunner_Fixture import test_strDefaultArgs, test_strCompleteArgs, test_strPartArgs
 from pytest import mark
 from PyInstallerRunner.myPyInstallerRunner import myPyInstallerRunner
 
@@ -13,7 +13,7 @@ def test_PyInstallerRunner_ParseDefaultArgs(test_strDefaultArgs):
 @mark.ParseArgs
 def test_PyInstallerRunner_ParseCompleteArgs(test_strCompleteArgs):
     oRunner = myPyInstallerRunner()
-    oRunner.loadSetting("./test/configs/complete_config.yaml")
+    oRunner.loadSetting("./tests/configs/complete_config.yaml")
     strArgs = oRunner._myPyInstallerRunner__parseSettings()
 
     assert strArgs == test_strCompleteArgs
@@ -22,7 +22,7 @@ def test_PyInstallerRunner_ParseCompleteArgs(test_strCompleteArgs):
 @mark.ParseArgs
 def test_PyInstallerRunner_ParsePartArgs(test_strPartArgs):
     oRunner = myPyInstallerRunner()
-    oRunner.loadSetting("./test/configs/part_config.yaml")
+    oRunner.loadSetting("./tests/configs/part_config.yaml")
     strArgs = oRunner._myPyInstallerRunner__parseSettings()
 
     assert strArgs == test_strPartArgs
