@@ -1,0 +1,36 @@
+[project]
+name = "PyInstallerRunner"
+dynamic = ["version"]
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "burstknight", email = "burstknight@gmail.com" }
+]
+requires-python = ">=3.8"
+dependencies = [
+    "pyinstaller>=5.9.0",
+    "pyyaml>=6.0.3",
+]
+
+[project.scripts]
+PyInstallerRunner = "PyInstallerRunner.myPyInstallerRunner:main"
+
+[tool.hatch.version]
+path = "./src/PyInstallerRunner/version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = [
+	"./src/PyInstallerRunner/",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "pytest-cov>=5.0.0",
+    "pytest-mock>=3.14.1",
+    "yapf>=0.43.0",
+]
