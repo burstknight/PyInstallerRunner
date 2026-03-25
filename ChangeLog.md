@@ -3,6 +3,7 @@
 ----
 ## [Unrelease]
 ### [Added]
+* This repo uses [`uv`](https://github.com/astral-sh/uv.git) to manage python environment and the project setting.
 
 ### [Changed]
 
