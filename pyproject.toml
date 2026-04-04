@@ -11,6 +11,12 @@ dependencies = [
     "pyinstaller>=5.9.0",
     "pyyaml>=6.0.3",
 ]
+classifiers = [
+	"Programming Language :: Python :: 3",
+	"License :: OSI Approved :: MIT ::License",
+	"Operating System :: POSIX :: Linux",
+	"Operating System :: Microsoft :: Windows",
+]
 
 [project.scripts]
 PyInstallerRunner = "PyInstallerRunner.myPyInstallerRunner:main"
