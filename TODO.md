@@ -1,4 +1,4 @@
 # To Do List
 
-* This repo should use [uv](https://docs.astral.sh/uv/) to manage develop environment.
+* Maybe I should try edit `pyrpoject.toml` to add the settings for `yapf`.
 
