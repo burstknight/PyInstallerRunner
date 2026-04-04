@@ -2,7 +2,7 @@
 name = "PyInstallerRunner"
 dynamic = ["version"]
 description = "This is a cli tool that can use yaml file to run pyinstaller to build a python project as an executable file."
-readme = "README.md"
+readme = { file = "./README.md", content-type = "text/markdown" }
 authors = [
     { name = "burstknight", email = "burstknight@gmail.com" }
 ]
