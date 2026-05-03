@@ -2,35 +2,25 @@
 This repo is a tool that can load configuration file to use `PyInstaller` to build python code as an executable file.
 
 ## Requirments
-This repo uses `Python 3.8` to develop, so you must install python `3.8` or later version. This repo need install the python packages:
-Package Name 	| Version
-----------------|----------------------
-`pyinstaller` 	| `>=5.9.0`
-`pyyaml` 		| `>=6.0`
-
-This repo need use `pytest` for unit test, so you should use these commands to install necessary modules:
-```sh
-$ pip3 install pytest
-$ pip3 install pytest-cov
-$ pip3 install pytest-mock
-```
+This repo uses `Python 3.8` to develop, so you must install python `3.8` or later version.
 
 ### Install
-You can use two ways to install this repo:
-1. Use `pip` install this repo:
-	- For linux:
-	```sh
-	pip3 install git+https://github.com/burstknight/PyInstallerRunner.git@release
-	```
-	- For windows:
-	```batch
-	pip install git+https://github.com/burstknight/PyInstallerRunner.git@release
-	```
-2. Clone this repo to install:
-```sh
-git clone git@github.com:burstknight/PyInstallerRunner.git
-cd PyInstallerRunner
-python setup.py install
+You can use this command to install this repo for your project:
+```python
+# For linux
+pip3 install git+https://github.com/burstknight/PyInstallerRunner.git@release
+
+# For windows
+pip install git+https://github.com/burstknight/PyInstallerRunner.git@release
+```
+
+If you perfer [uv](https://github.com/astral-sh/uv) to manage your project, you can follow the command to install this repo:
+```python
+# Install this repo into your project
+uv add --dev git+https://github.com/burstknight/PyInstallerRunner.git@release
+
+# Install this repo as a package for `uv tool`
+uv tool install git+https://github.com/burstknight/PyInstallerRunner.git@release
 ```
 
 ## Usage
