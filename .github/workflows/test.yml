@@ -27,7 +27,7 @@ jobs:
           uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
 
         - name: Install the project
-          uses: uv sync --locked --all-extras --dev
+          uses: uv sync
 
         - name: Run tests
           run: uv run pytest
