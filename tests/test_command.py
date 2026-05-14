@@ -1,7 +1,7 @@
-from test.PyInstallerRunner_Fixture import test_dctCommandArgs_Default, test_dctCommandArgs_Config, test_dctCommandArgs_Build
+from tests.PyInstallerRunner_Fixture import test_dctCommandArgs_Default, test_dctCommandArgs_Config, test_dctCommandArgs_Build
 from pytest import mark
 from PyInstallerRunner.myPyInstallerRunner import main, parseArgs
-from test.test_PyInstallerRunner_Build import runApp
+from tests.test_PyInstallerRunner_Build import runApp
 from unittest.mock import patch
 
 @mark.Command

@@ -1,14 +1,24 @@
 # Change Log
 
-----
-## [Unrelease]
+----------
+## [Unreleased]
 ### [Added]
 
 ### [Changed]
 
 ### [Fixed]
 
+### [Security]
+
 ### [Removed]
+
+### [Deprecated]
+
+
+----
+## [1.1.0] - 2026/05/14
+### [Added]
+* This repo uses [`uv`](https://github.com/astral-sh/uv.git) to manage python environment and the project setting.
 
 ----
 ## [1.0.1] - 2023/10/13

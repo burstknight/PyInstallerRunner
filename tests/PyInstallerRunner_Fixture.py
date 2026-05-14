@@ -47,9 +47,9 @@ def test_strPartArgs() -> str:
 @pytest.fixture()
 def test_dctApp01Cofig_file() -> Dict[str, str]:
     dctConfig = {}
-    dctConfig["source"] = "./test/examples/myApp01/myApp01.py"
-    dctConfig["config"] = "./test/examples/myApp01/config_file.yaml"
-    dctConfig["bin"] = "./test/examples/bin/release/myApp01_file"
+    dctConfig["source"] = "./tests/examples/myApp01/myApp01.py"
+    dctConfig["config"] = "./tests/examples/myApp01/config_file.yaml"
+    dctConfig["bin"] = "./tests/examples/bin/release/myApp01_file"
     dctConfig["app"] = "myApp01_file"
 
     return dctConfig
@@ -58,9 +58,9 @@ def test_dctApp01Cofig_file() -> Dict[str, str]:
 @pytest.fixture()
 def test_dctApp01Cofig_dir() -> Dict[str, str]:
     dctConfig = {}
-    dctConfig["source"] = "./test/examples/myApp01/myApp01.py"
-    dctConfig["config"] = "./test/examples/myApp01/config_dir.yaml"
-    dctConfig["bin"] = "./test/examples/bin/release/myApp01_dir"
+    dctConfig["source"] = "./tests/examples/myApp01/myApp01.py"
+    dctConfig["config"] = "./tests/examples/myApp01/config_dir.yaml"
+    dctConfig["bin"] = "./tests/examples/bin/release/myApp01_dir"
     dctConfig["app"] = "myApp01_dir"
     
     return dctConfig
@@ -69,9 +69,9 @@ def test_dctApp01Cofig_dir() -> Dict[str, str]:
 @pytest.fixture()
 def test_dctApp02Cofig_file() -> Dict[str, str]:
     dctConfig = {}
-    dctConfig["source"] = "./test/examples/myApp02/myApp02.py"
-    dctConfig["config"] = "./test/examples/myApp02/config_file.yaml"
-    dctConfig["bin"] = "./test/examples/bin/release/myApp02_file"
+    dctConfig["source"] = "./tests/examples/myApp02/myApp02.py"
+    dctConfig["config"] = "./tests/examples/myApp02/config_file.yaml"
+    dctConfig["bin"] = "./tests/examples/bin/release/myApp02_file"
     dctConfig["app"] = "myApp02_file"
 
     return dctConfig
@@ -80,9 +80,9 @@ def test_dctApp02Cofig_file() -> Dict[str, str]:
 @pytest.fixture()
 def test_dctApp02Cofig_dir() -> Dict[str, str]:
     dctConfig = {}
-    dctConfig["source"] = "./test/examples/myApp02/myApp02.py"
-    dctConfig["config"] = "./test/examples/myApp02/config_dir.yaml"
-    dctConfig["bin"] = "./test/examples/bin/release/myApp02_dir"
+    dctConfig["source"] = "./tests/examples/myApp02/myApp02.py"
+    dctConfig["config"] = "./tests/examples/myApp02/config_dir.yaml"
+    dctConfig["bin"] = "./tests/examples/bin/release/myApp02_dir"
     dctConfig["app"] = "myApp02_dir"
     
     return dctConfig
@@ -91,7 +91,7 @@ def test_dctApp02Cofig_dir() -> Dict[str, str]:
 @pytest.fixture()
 def test_dctCopyResourcesFailed() -> Dict:
     dctResource = {}
-    dctResource["BuildPath"] = "./test"
+    dctResource["BuildPath"] = "./tests"
     dctResource["Resources"] = [{"Source": "bug_code.pyxxx", "Target": "."}]
 
     return dctResource
@@ -118,8 +118,8 @@ def test_dctCommandArgs_Config() -> Dict:
 @pytest.fixture()
 def test_dctCommandArgs_Build() -> Dict:
     dctCommandArgs = {}
-    dctCommandArgs["args"] = Namespace(source_path="./test/examples/myApp01/myApp01.py", config_path="./test/examples/myApp01/config_dir.yaml")
-    dctCommandArgs["bin"] = "./test/examples/bin/release/myApp01_dir"
+    dctCommandArgs["args"] = Namespace(source_path="./tests/examples/myApp01/myApp01.py", config_path="./tests/examples/myApp01/config_dir.yaml")
+    dctCommandArgs["bin"] = "./tests/examples/bin/release/myApp01_dir"
     dctCommandArgs["app"] = "myApp01_dir"
 
     return dctCommandArgs

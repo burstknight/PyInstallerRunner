@@ -1,0 +1,7 @@
+BuildPath:
+  DistPath: ./tests/examples/bin/release
+  SpecPath: ./tests/examples/bin
+  WorkPath: ./tests/examples/bin/build
+CompileConfig:
+  IsFile: false
+  AppName: myApp01_dir

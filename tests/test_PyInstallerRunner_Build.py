@@ -1,7 +1,7 @@
 from PyInstallerRunner.myPyInstallerRunner import myPyInstallerRunner
 from pytest import mark, raises
 from unittest.mock import patch
-from test.PyInstallerRunner_Fixture import test_dctApp01Cofig_dir, test_dctApp01Cofig_file, test_dctApp02Cofig_dir, test_dctApp02Cofig_file, test_dctCopyResourcesFailed
+from tests.PyInstallerRunner_Fixture import test_dctApp01Cofig_dir, test_dctApp01Cofig_file, test_dctApp02Cofig_dir, test_dctApp02Cofig_file, test_dctCopyResourcesFailed
 from os import system, getcwd, chdir
 import platform
 
